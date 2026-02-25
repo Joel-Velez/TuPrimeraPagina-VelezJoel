@@ -31,3 +31,15 @@ class CargoUpdate(UpdateView):
     model = models.Cargo
     form_class = forms.CargoForm
     success_url = reverse_lazy('core:cargo_list')
+    
+    
+    
+class EmpleadoCreate(CreateView):
+    model = models.Cargo
+    form_class = forms.CargoForm
+    success_url = reverse_lazy('core:cargo_list')
+    
+class TareaCreate(CreateView):
+    model = models.Tarea
+    form_class = forms.CargoForm
+    success_url = reverse_lazy('core:cargo_list')
