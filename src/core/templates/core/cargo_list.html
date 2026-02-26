@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    <h1>Lista de Cargos</h1>
+{% endblock titulo %}
+
+{% block content %}
+
+    <form method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for cargo in object_list %}
+            <li>
+                <a href="{% url 'core:cargo_detail' cargo.pk %}">{{ cargo.cargo }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

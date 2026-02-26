@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mi Primera Pagina - VELEZ JOEL</title>
 </head>
 <body>
-    <h1>{{titulo}}</h1>
+    {% block titulo %}
+        
+    {% endblock titulo %}
     {% include 'core/componentes/navbar.html' %}
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+
 </body>
 </html>

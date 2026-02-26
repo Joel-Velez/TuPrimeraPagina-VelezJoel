@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 
 
 def index(request):
-    return render(request, "core/index.html", {"titulo": "Python - Django"})
+    return render(request, "core/index.html", {"titulo": "Mi Primera Pagina - Velez Joel"})
 
 class CargoList(ListView):
     model = models.Cargo
@@ -40,10 +40,10 @@ class CargoUpdate(UpdateView):
     
 class EmpleadoCreate(CreateView):
     model = models.Cargo
-    form_class = forms.CargoForm
+    form_class = forms.EmpleadoForm
     success_url = reverse_lazy('core:cargo_list')
     
 class TareaCreate(CreateView):
     model = models.Tarea
-    form_class = forms.CargoForm
+    form_class = forms.TareaForm
     success_url = reverse_lazy('core:cargo_list')

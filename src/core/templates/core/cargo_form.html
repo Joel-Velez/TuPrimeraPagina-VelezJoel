@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    {% if form.instance.pk is not None %}
+        Actualizar 
+    {% else %}
+        Crear 
+    {% endif %}
+{% endblock titulo %}
+
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock content %}

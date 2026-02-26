@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Detalle de Categoría
+{% endblock titulo %}
+
+{% block content %}
+      <ul>
+        <li>Nombre: {{ cargo.cargo}}</li>
+        {% if cargo.descripcion %}
+            <li>Descripción: {{ cargo.descripcion }}</li>
+        {% else %}
+            <li>Descripción: -</li>
+        {% endif %}
+    </ul>
+    <button><a href="{% url 'core:cargo_update' cargo.pk %}">Actualizar</a></button>
+    <button><a href="{% url 'core:cargo_delete' cargo.pk %}">Borrar</a></button>
+{% endblock content %}
