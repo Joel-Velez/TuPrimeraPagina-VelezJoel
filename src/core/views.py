@@ -1,8 +1,12 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from . import models
 from . import forms
 from django.urls import reverse_lazy
+
+
+def index(request):
+    return render(request, "core/index.html", {"titulo": "Python - Django"})
 
 class CargoList(ListView):
     model = models.Cargo
