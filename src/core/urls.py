@@ -24,6 +24,10 @@ urlpatterns = [
     
     # Tareas:
     path('tarea/create/', views.TareaCreate.as_view(), name='tarea_create'),
+    path('tarea/lista/', views.TareaList.as_view(), name='tarea_list'),
+    path('tarea/detail/<int:pk>', views.TareaDetail.as_view(), name='tarea_detail'),
+    path('tarea/delete/<int:pk>', views.TareaDelete.as_view(), name='tarea_delete'),
+    path('tarea/update/<int:pk>', views.TareaUpdate.as_view(), name='tarea_update'),
        
     # Login, Logout, Register
     path('login/', LoginView.as_view(template_name='core/login.html'), name='login'),

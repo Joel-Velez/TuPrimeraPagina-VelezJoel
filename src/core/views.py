@@ -76,7 +76,32 @@ class EmpleadoDelete(DeleteView):
 class TareaCreate(CreateView):
     model = models.Tarea
     form_class = forms.TareaForm
-    success_url = reverse_lazy('core:cargo_list')
+    success_url = reverse_lazy('core:tarea_list')
+    
+class TareaList(ListView):
+    model = models.Tarea
+    
+    def get_queryset(self):
+        consulta = self.request.GET.get('consulta')
+        if consulta:
+            tarea = models.Tarea.objects.filter(empleado__cargo__cargo__icontains=consulta)
+        else:
+            tarea = models.Tarea.objects.all()
+        return tarea
+    
+class TareaDetail(DetailView):
+    model = models.Tarea
+    
+class TareaUpdate(UpdateView):
+    model = models.Tarea
+    form_class = forms.TareaForm
+    success_url = reverse_lazy('core:tarea_list')
+    
+class TareaDelete(DeleteView):
+    model = models.Tarea
+    success_url = reverse_lazy('core:tarea_list')
+    
+
     
 # Login, Logout, Register
 class Register(CreateView):

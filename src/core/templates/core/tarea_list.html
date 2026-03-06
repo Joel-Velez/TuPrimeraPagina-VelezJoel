@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    <h1>Lista de Tareas</h1>
+{% endblock titulo %}
+
+{% block content %}
+
+    <form method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for tarea in object_list %}
+            <li>
+                <a href="{% url 'core:tarea_detail' tarea.pk %}">{{ tarea.nombre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <button><a href="{% url 'core:tarea_create'%}">Crear</a></button>
+    <button><a href="{% url 'core:index' %}">Volver</a></button>
+{% endblock content %}
