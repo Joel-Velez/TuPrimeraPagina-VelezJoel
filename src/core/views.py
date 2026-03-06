@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 from . import models
 from . import forms
 from django.urls import reverse_lazy
+from .forms import RegisterForm
 
 
 def index(request):
@@ -47,3 +48,9 @@ class TareaCreate(CreateView):
     model = models.Tarea
     form_class = forms.TareaForm
     success_url = reverse_lazy('core:cargo_list')
+    
+    
+class Register(CreateView):
+    form_class = RegisterForm
+    template_name = 'core/register.html'
+    success_url = reverse_lazy('core:login') 

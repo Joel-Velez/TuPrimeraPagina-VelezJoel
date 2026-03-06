@@ -1,0 +1,24 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+    <h2>Registrarse</h2>
+    {% include 'core/componentes/navbar.html' %}
+
+    {% block content %}
+    <form  method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <button type="submit">Registrarse</button>
+    </form>
+    <p>Ya tienes cuenta? <a href="{% url 'core:login' %}">Iniciar Sesion</a> </p>
+
+    {% endblock content %}
+</body>
+</html>

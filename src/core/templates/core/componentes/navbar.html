@@ -1,9 +1,17 @@
 <nav>
     <ul>
-        <li><a href="{% url 'core:index' %}">Inicio</a></li>
-        <li><a href="{% url 'core:cargo_list' %}">Cargos</a></li>
-        <li><a href="{% url 'core:cargo_create' %}">Crear Cargo</a></li>
-        <li><a href="{% url 'core:empleado_create' %}">Crear Empleado</a></li>
-        <li><a href="{% url 'core:tarea_create' %}">Crear Tarea</a></li>
+        <li><a href="{% url 'core:index' %}">Inicio</a> </li>
+        <li>
+            {% if user.is_authenticated %}
+            <form action="{% url 'core:logout' %}" method="post">
+                {% csrf_token %}
+                 <button type="submit">Cerrar Sesion</button>
+            </form>
+            <a href="{% url 'core:cargo_list' %} ">Cargo</a>
+            {% else %}
+            
+            <a href="{% url 'core:login' %}">Iniciar Sesion</a></li>
+            {% endif %}
     </ul>
 </nav>
+
