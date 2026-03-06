@@ -17,6 +17,10 @@ urlpatterns = [
     
     # Empleados:
     path('empleado/create/', views.EmpleadoCreate.as_view(), name='empleado_create'),
+    path('empleado/lista/', views.EmpleadoList.as_view(), name='empleado_list'),
+    path('empleado/detail/<int:pk>', views.EmpleadoDetail.as_view(), name='empleado_detail'),
+    path('empleado/delete/<int:pk>', views.EmpleadoDelete.as_view(), name='empleado_delete'),
+    path('empleado/update/<int:pk>', views.EmpleadoUpdate.as_view(), name='empleado_update'),
     
     # Tareas:
     path('tarea/create/', views.TareaCreate.as_view(), name='tarea_create'),

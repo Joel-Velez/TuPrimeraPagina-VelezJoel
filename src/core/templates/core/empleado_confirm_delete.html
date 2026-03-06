@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Borrar Empleado
+{% endblock titulo %}
+
+{% block content %}
+    <p>¿Estás seguro de borrar la categoría "{{ empleado.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmo</button>
+    </form>
+{% endblock content %}

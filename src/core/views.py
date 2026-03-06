@@ -6,9 +6,12 @@ from django.urls import reverse_lazy
 from .forms import RegisterForm
 
 
+# Home
 def index(request):
     return render(request, "core/index.html", {"titulo": "Mi Primera Pagina - Velez Joel"})
 
+
+# Cargos
 class CargoList(ListView):
     model = models.Cargo
     
@@ -38,18 +41,44 @@ class CargoUpdate(UpdateView):
     success_url = reverse_lazy('core:cargo_list')
     
     
-    
+# Empleados
 class EmpleadoCreate(CreateView):
     model = models.Cargo
     form_class = forms.EmpleadoForm
-    success_url = reverse_lazy('core:cargo_list')
+    success_url = reverse_lazy('core:empleado_list')
     
+class EmpleadoList(ListView):
+    model = models.Empleado
+    
+    def get_queryset(self):
+        consulta = self.request.GET.get('consulta')
+        if consulta:
+            empleado = models.Empleado.objects.filter(email__icontains=consulta)
+        else:
+            empleado = models.Empleado.objects.all()
+        return empleado
+    
+class EmpleadoDetail(DetailView):
+    model = models.Empleado
+    
+class EmpleadoUpdate(UpdateView):
+    model = models.Empleado
+    form_class = forms.EmpleadoForm
+    success_url = reverse_lazy('core:empleado_list')
+    
+class EmpleadoDelete(DeleteView):
+    model = models.Empleado
+    success_url = reverse_lazy('core:empleado_list')
+    
+
+    
+# Tareas
 class TareaCreate(CreateView):
     model = models.Tarea
     form_class = forms.TareaForm
     success_url = reverse_lazy('core:cargo_list')
     
-    
+# Login, Logout, Register
 class Register(CreateView):
     form_class = RegisterForm
     template_name = 'core/register.html'

@@ -8,6 +8,7 @@
                  <button type="submit">Cerrar Sesion</button>
             </form>
             <a href="{% url 'core:cargo_list' %} ">Cargo</a>
+            <a href="{% url 'core:empleado_list' %} ">Empleado</a>  
             {% else %}
             
             <a href="{% url 'core:login' %}">Iniciar Sesion</a></li>

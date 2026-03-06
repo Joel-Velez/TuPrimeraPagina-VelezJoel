@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    <h1>Lista de Empleados</h1>
+{% endblock titulo %}
+
+{% block content %}
+
+    <form method="get">
+        <input type="text" name="consulta" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        {% for empleado in object_list %}
+            <li>
+                <a href="{% url 'core:empleado_detail' empleado.pk %}">{{ empleado.nombre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <button><a href="{% url 'core:empleado_create'%}">Crear</a></button>
+    <button><a href="{% url 'core:index' %}">Volver</a></button>
+{% endblock content %}

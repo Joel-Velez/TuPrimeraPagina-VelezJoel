@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+    Detalle de Categoría
+{% endblock titulo %}
+
+{% block content %}
+      <ul>
+        <li>Nombre: {{ empleado.nombre}}</li>
+        {% if empleado.cargo %}
+            <li>Cargo: {{ empleado.cargo }}</li>
+        {% else %}
+            <li>Cargo: -</li>
+        {% endif %}
+    </ul>
+    <button><a href="{% url 'core:empleado_update' empleado.pk %}">Actualizar</a></button>
+    <button><a href="{% url 'core:empleado_delete' empleado.pk %}">Borrar</a></button>
+    <button><a href="{% url 'core:empleado_list' %}">Volver</a></button>
+{% endblock content %}
