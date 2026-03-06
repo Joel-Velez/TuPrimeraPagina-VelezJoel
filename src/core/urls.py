@@ -34,4 +34,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='core/logout.html'), name='logout'),
     path('register/', views.Register.as_view(), name='register'),
     
+    # Sobre Mi
+    path('about/', views.about, name='about'),
 ]

@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from . import models
@@ -53,7 +54,7 @@ class EmpleadoList(ListView):
     def get_queryset(self):
         consulta = self.request.GET.get('consulta')
         if consulta:
-            empleado = models.Empleado.objects.filter(email__icontains=consulta)
+            empleado = models.Empleado.objects.filter(nombre__icontains=consulta)
         else:
             empleado = models.Empleado.objects.all()
         return empleado
@@ -84,7 +85,7 @@ class TareaList(ListView):
     def get_queryset(self):
         consulta = self.request.GET.get('consulta')
         if consulta:
-            tarea = models.Tarea.objects.filter(empleado__cargo__cargo__icontains=consulta)
+            tarea = models.Tarea.objects.filter(nombre__icontains=consulta)
         else:
             tarea = models.Tarea.objects.all()
         return tarea
@@ -108,3 +109,8 @@ class Register(CreateView):
     form_class = RegisterForm
     template_name = 'core/register.html'
     success_url = reverse_lazy('core:login') 
+    
+    
+# Sobre Mi
+def about(request):
+    return render(request, "core/about.html", {"titulo": "Sobre Mi"})   
