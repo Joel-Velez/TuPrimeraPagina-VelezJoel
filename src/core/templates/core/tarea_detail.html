@@ -1,19 +1,41 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Detalle de Tareas
+Detalle Tarea
 {% endblock titulo %}
 
 {% block content %}
-      <ul>
-        <li>Nombre: {{ tarea.nombre}}</li>
-        {% if tarea.descripcion %}
-            <li>Descripcion {{ tarea.descripcion }}</li>
-        {% else %}
-            <li>Cargo: -</li>
-        {% endif %}
-    </ul>
-    <button><a href="{% url 'core:tarea_update' tarea.pk %}">Actualizar</a></button>
-    <button><a href="{% url 'core:tarea_delete' tarea.pk %}">Borrar</a></button>
-    <button><a href="{% url 'core:tarea_list' %}">Volver</a></button>
+
+<h2 class="mb-4">Detalle Tarea</h2>
+
+<div class="card">
+
+<div class="card-body">
+
+<p><strong>Empleado:</strong> {{ tarea.empleado }}</p>
+
+{% if tarea.descripcion %}
+<p><strong>descripcion:</strong> {{ tarea.descripcion }}</p>
+{% endif %}
+
+</div>
+
+</div>
+
+<div class="mt-3 d-flex gap-2">
+
+<a class="btn btn-warning" href="{% url 'core:tarea_update' tarea.pk %}">
+Editar
+</a>
+
+<a class="btn btn-danger" href="{% url 'core:tarea_delete' tarea.pk %}">
+Eliminar
+</a>
+
+<a class="btn btn-secondary" href="{% url 'core:tarea_list' %}">
+Volver
+</a>
+
+</div>
+
 {% endblock content %}

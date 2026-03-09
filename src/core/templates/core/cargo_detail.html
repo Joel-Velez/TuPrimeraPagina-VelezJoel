@@ -1,19 +1,41 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Detalle de Categoría
+Detalle del Cargo
 {% endblock titulo %}
 
 {% block content %}
-      <ul>
-        <li>Nombre: {{ cargo.cargo}}</li>
-        {% if cargo.descripcion %}
-            <li>Descripción: {{ cargo.descripcion }}</li>
-        {% else %}
-            <li>Descripción: -</li>
-        {% endif %}
-    </ul>
-    <button><a href="{% url 'core:cargo_update' cargo.pk %}">Actualizar</a></button>
-    <button><a href="{% url 'core:cargo_delete' cargo.pk %}">Borrar</a></button>
-    <button><a href="{% url 'core:cargo_list' %}">Volver</a></button>
+
+<h2 class="mb-4">Detalle del Cargo</h2>
+
+<div class="card">
+
+<div class="card-body">
+
+<p><strong>Cargo:</strong> {{ cargo.cargo }}</p>
+
+{% if cargo.descripcion %}
+<p><strong>Descripción:</strong> {{ cargo.descripcion }}</p>
+{% endif %}
+
+</div>
+
+</div>
+
+<div class="mt-3 d-flex gap-2">
+
+<a class="btn btn-warning" href="{% url 'core:cargo_update' cargo.pk %}">
+Editar
+</a>
+
+<a class="btn btn-danger" href="{% url 'core:cargo_delete' cargo.pk %}">
+Eliminar
+</a>
+
+<a class="btn btn-secondary" href="{% url 'core:cargo_list' %}">
+Volver
+</a>
+
+</div>
+
 {% endblock content %}
