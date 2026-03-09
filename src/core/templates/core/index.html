@@ -1,13 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Pagina - VELEZ JOEL</title>
-</head>
-<body>
-    <h1>{{titulo}}</h1>
-    {% include 'core/componentes/navbar.html' %}
-    {% include 'core/componentes/footer.html' %}
-</body>
-</html>
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+Inicio
+{% endblock titulo %}
+
+{% block content %}
+
+<h1 class="mb-4 text-center">Sistema de Gestión</h1>
+
+<div class="row">
+
+<div class="col-md-4">
+<div class="card">
+<div class="card-body text-center">
+
+<h5 class="card-title">Cargos</h5>
+
+<p class="card-text">
+Administrar los cargos disponibles.
+</p>
+
+<a class="btn btn-primary" href="{% url 'core:cargo_list' %}">
+Ver cargos
+</a>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<div class="card-body text-center">
+
+<h5 class="card-title">Empleados</h5>
+
+<p class="card-text">
+Administrar los empleados disponibles.
+</p>
+
+<a class="btn btn-primary" href="{% url 'core:empleado_list' %}">
+Ver empleados
+</a>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<div class="card-body text-center">
+
+<h5 class="card-title">Tareas</h5>
+
+<p class="card-text">
+Administrar las tareas disponibles.
+</p>
+
+<a class="btn btn-primary" href="{% url 'core:tarea_list' %}">
+Ver tareas
+</a>
+
+</div>
+</div>
+</div>
+
+</div>
+
+{% endblock content %}
