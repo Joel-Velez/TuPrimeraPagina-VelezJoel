@@ -1,13 +1,45 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Borrar Categoría de Productos
+Borrar Cargo
 {% endblock titulo %}
 
 {% block content %}
-    <p>¿Estás seguro de borrar la categoría "{{ cargo.nombre }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmo</button>
-    </form>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="card border-danger">
+
+            <div class="card-header bg-danger text-white">
+                Confirmar eliminación
+            </div>
+
+            <div class="card-body">
+
+                <p class="mb-4">
+                    ¿Estás seguro de borrar el cargo
+                    <strong>"{{ cargo.cargo }}"</strong>?
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <button class="btn btn-danger" type="submit">
+                        Confirmar
+                    </button>
+
+                    <a class="btn btn-secondary" href="{% url 'core:cargo_list' %}">
+                        Cancelar
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
 {% endblock content %}

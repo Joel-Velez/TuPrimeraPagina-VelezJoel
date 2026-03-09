@@ -1,13 +1,45 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-    Borrar Empleado
+Borrar Empleado
 {% endblock titulo %}
 
 {% block content %}
-    <p>¿Estás seguro de borrar la categoría "{{ empleado.nombre }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmo</button>
-    </form>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="card border-danger">
+
+            <div class="card-header bg-danger text-white">
+                Confirmar eliminación
+            </div>
+
+            <div class="card-body">
+
+                <p class="mb-4">
+                    ¿Estás seguro de borrar el Empleado
+                    <strong>"{{ empleado.nombre }}"</strong>?
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <button class="btn btn-danger" type="submit">
+                        Confirmar
+                    </button>
+
+                    <a class="btn btn-secondary" href="{% url 'core:cargo_list' %}">
+                        Cancelar
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
 {% endblock content %}
