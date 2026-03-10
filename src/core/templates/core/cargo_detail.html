@@ -1,41 +1,41 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Detalle del Cargo
+    Detalle del Cargo
 {% endblock titulo %}
 
 {% block content %}
 
-<h2 class="mb-4">Detalle del Cargo</h2>
+    <h2 class="mb-4">Detalle del Cargo</h2>
 
-<div class="card">
+    <div class="card">
 
-<div class="card-body">
+        <div class="card-body">
 
-<p><strong>Cargo:</strong> {{ cargo.cargo }}</p>
+            <p><strong>Cargo:</strong> {{ cargo.cargo }}</p>
 
-{% if cargo.descripcion %}
-<p><strong>Descripción:</strong> {{ cargo.descripcion }}</p>
-{% endif %}
+            {% if cargo.descripcion %}
+                <p><strong>Descripción:</strong> {{ cargo.descripcion }}</p>
+            {% endif %}
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<div class="mt-3 d-flex gap-2">
+    <div class="mt-3 d-flex gap-2">
 
-<a class="btn btn-warning" href="{% url 'core:cargo_update' cargo.pk %}">
-Editar
-</a>
+        <a class="btn btn-warning" href="{% url 'core:cargo_update' cargo.pk %}">
+            Editar
+        </a>
 
-<a class="btn btn-danger" href="{% url 'core:cargo_delete' cargo.pk %}">
-Eliminar
-</a>
+        <a class="btn btn-danger" href="{% url 'core:cargo_delete' cargo.pk %}">
+            Eliminar
+        </a>
 
-<a class="btn btn-secondary" href="{% url 'core:cargo_list' %}">
-Volver
-</a>
+        <a class="btn btn-secondary" href="{% url 'core:cargo_list' %}">
+            Volver
+        </a>
 
-</div>
+    </div>
 
 {% endblock content %}

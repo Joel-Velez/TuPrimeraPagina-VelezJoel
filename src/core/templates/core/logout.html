@@ -1,21 +1,21 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-Sesión cerrada
+    Sesión cerrada
 {% endblock titulo %}
 
 {% block content %}
 
-<div class="text-center">
+    <div class="text-center">
 
-<h2>Sesión cerrada</h2>
+        <h2>Sesión cerrada</h2>
 
-<p>Has cerrado sesión correctamente.</p>
+        <p>Has cerrado sesión correctamente.</p>
 
-<a class="btn btn-primary" href="{% url 'core:login' %}">
-Iniciar sesión nuevamente
-</a>
+        <a class="btn btn-primary" href="{% url 'core:login' %}">
+            Iniciar sesión nuevamente
+        </a>
 
-</div>
+    </div>
 
 {% endblock content %}
