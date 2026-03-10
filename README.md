@@ -53,3 +53,15 @@ Proyecto realizado con Django para practicar CRUD, autenticación y uso de plant
 /tarea/list/ → lista de tareas  
 /about/ → información del alumno  
 /admin/ → panel de administración
+
+## 🎥 Video demostración
+
+Se muestra:
+
+- Inicio de sesión
+- Navegación del sistema
+- Gestión de cargos
+- Gestión de empleados
+- Gestión de tareas
+
+📺 Ver video: https://drive.google.com/file/d/1KfanpKjjtpSwsVDvkNZwQT0ozfCYPPCX/view?usp=sharing
